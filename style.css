@@ -180,7 +180,7 @@ nav a{
     letter-spacing: 3px;
 
 }
-.om-hero a{
+.email{
     position: absolute;
     bottom: 5%;
     left: 5%;
@@ -562,7 +562,7 @@ footer{
     .om-hero p {
         opacity: 0;
     }
-    .om-hero a {
+    .email {
         margin-top: 150px;
         opacity: 0;
     }
