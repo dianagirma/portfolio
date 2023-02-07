@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title Here</title>
+    <title>Diana Girma</title>
     <!-- custom css -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
     <!-- font awesome link -->
     <script src="https://kit.fontawesome.com/71939cd678.js" crossorigin="anonymous"></script>
 </head>
-<body>
+
+<body onload="typeWriter()">
     <!-- header -->
     <header>
         <nav>
             <div class="nav-links">
                 <a href="#">Hem</a>
-                <a href="om.html">Om</a>
-                <a href="portfolio.html">Portfolio</a>
+                <a href="om/om.html">Om</a>
+                <a href="./portfolio/portfolio.html">Portfolio</a>
             </div>
-            <img src="img/logo.png" alt="" class="logo">
+            <img src="./img/logo.png" alt="" class="logo">
             <div class="nav-links">
                 <a href="#">Ladda ned cv</a>
             </div>
@@ -29,9 +32,9 @@
     <main>
         <section class="hero">
             <div></div>
-            <h3>Hej!!! <br>
-                jag är Diana. </h3>  
-            <img src="img/hero.jpg" alt="">
+            <h3 id="demo"></h3>
+            <p></p>
+            <img src="./img/hero.jpg" alt="">
             <article class="hero-icons">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
                 <i class="fa fa-linkedin " aria-hidden="true"></i>
@@ -40,9 +43,60 @@
             </article>
             <article class="hero-end">
                 <i class="fa-solid fa-arrow-right"></i>
-                <h2><a href="om.html">om mig </a></h2>
+                <h2><a href="./om/om.html">om mig </a></h2>
             </article>
         </section>
     </main>
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
 </body>
+
 </html>
+
+<script>
+
+    // cursor effect
+    var cursor = document.querySelector(".cursor");
+    var cursor2 = document.querySelector(".cursor2");
+    document.addEventListener("mousemove", function (e) {
+        cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+    });
+
+    // typing effect
+    var i = 0;
+    var txt = 'Hej!!! jag är Diana.'; /* The text */
+    var speed = 100; /* The speed/duration of the effect in milliseconds */
+
+    function typeWriter() {
+        if (i < txt.length) {
+            document.getElementById("demo").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    var colors = ["pink", "brown", "yellow", "indigo", "gray", "purple"];
+    var currentIndex = 0;
+
+    setInterval(function () {
+        // OPTION 1
+        document.body.style.cssText = "background-color: " + colors[currentIndex];
+        currentIndex++;
+        if (currentIndex == undefined || currentIndex >= colors.length) {
+            currentIndex = 0;
+        }
+        // OPTION 2
+        // document.body.style.cssText = "background-color: " + getRandomColor();
+    }, 1000);
+
+</script>
